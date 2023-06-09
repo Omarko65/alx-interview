@@ -8,10 +8,10 @@ def extract_input(input_line):
     '''Extracts sections of a line of an HTTP request log.
     '''
     fp = (
-        r'^\s*(?P<ip>\d+\.\d+\.\d+\.\d+)\s*',
-        r'\s*(?P<date>\[\d{4}\-\d+\-\d+ \d+:\d+:\d+\.\d+\])\s*',
-        r'\s*"(?P<request>.*HTTP.*)"\s*',
-        r'\s*(?P<status_code>\d+\S+)',
+        r'\s*(?P<ip>\S+)\s*',
+        r'\s*\[(?P<date>\d+\-\d+\-\d+ \d+:\d+:\d+\.\d+)\]',
+        r'\s*"(?P<request>[^"]*)"\s*',
+        r'\s*(?P<status_code>\S+)',
         r'\s*(?P<file_size>\d+)'
     )
     info = {
